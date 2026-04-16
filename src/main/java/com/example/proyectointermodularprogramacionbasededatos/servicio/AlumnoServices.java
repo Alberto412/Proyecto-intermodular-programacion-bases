@@ -13,6 +13,12 @@ public class AlumnoServices {
     public Alumno getAlumno(){
         return new Alumno("Alberto","Navarro",18,1);
     }
-    //@GetMapping("/saludo")
+    /*
+    @GetMapping({"/saludo/{name}"})
+    public saludar(){
+
+    }
+
+     */
 
 }
