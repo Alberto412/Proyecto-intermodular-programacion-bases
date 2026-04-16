@@ -1,7 +1,5 @@
 package com.example.proyectointermodularprogramacionbasededatos;
 
-import com.example.proyectointermodularprogramacionbasededatos.dominio.Alumnos;
-import lombok.AllArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

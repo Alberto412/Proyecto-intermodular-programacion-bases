@@ -1,8 +1,7 @@
 package com.example.proyectointermodularprogramacionbasededatos.controlador;
 
-import com.example.proyectointermodularprogramacionbasededatos.dominio.Alumnos;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.example.proyectointermodularprogramacionbasededatos.servicio.AlumnoServices;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/alumno")
 public class AlumnoControler {
 
-    @GetMapping
-    public Alumnos getAlumno(){
-        return new Alumnos("Alberto","Navarro",18);
-    }
+private final AlumnoServices alumnoServices = new AlumnoServices();
+
 }
