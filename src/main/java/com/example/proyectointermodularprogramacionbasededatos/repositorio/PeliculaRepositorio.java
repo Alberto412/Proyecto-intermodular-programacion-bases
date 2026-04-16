@@ -1,10 +1,11 @@
 package com.example.proyectointermodularprogramacionbasededatos.repositorio;
 
 import com.example.proyectointermodularprogramacionbasededatos.dominio.Pelicula;
+import org.springframework.stereotype.Repository;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-
+@Repository
 public class PeliculaRepositorio {
     private ArrayList<Pelicula> peliculas= new ArrayList<>();
     public PeliculaRepositorio(){
