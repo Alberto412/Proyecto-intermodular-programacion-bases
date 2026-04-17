@@ -5,10 +5,7 @@ import com.example.proyectointermodularprogramacionbasededatos.servicio.AlumnoSe
 import com.example.proyectointermodularprogramacionbasededatos.servicio.PeliculasService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -20,7 +17,7 @@ public class PeliculasControler {
     @GetMapping
     public ArrayList<Pelicula> mostrar_peliculas(){return peliculasService.mostrar_peliculas();}
     @PostMapping
-    public Pelicula addPelicula(Pelicula p){return peliculasService.addPelicula(p);}
+    public Pelicula addPelicula(@RequestBody Pelicula p){return peliculasService.addPelicula(p);}
 
 
 }
