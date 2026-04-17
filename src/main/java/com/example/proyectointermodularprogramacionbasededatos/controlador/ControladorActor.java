@@ -19,6 +19,4 @@ public class ControladorActor {
     public ArrayList<Actor> mostrar_actor(){return actorServicio.mostrar_actores();}
     @PostMapping
     public Actor addActor(@RequestBody Actor p){return actorServicio.addActor(p);}
-
-
 }
