@@ -26,16 +26,16 @@ public class DataLoader implements CommandLineRunner {
         // ── PELÍCULAS ──────────────────────────────────────────────
         if (peliculaRepositorio.count() == 0) {
             peliculaRepositorio.saveAll(List.of(
-                    new Pelicula(null, "El Padrino",              "Drama",      1972),
-                    new Pelicula(null, "2001: Odisea en el Espacio", "Ciencia Ficción", 1968),
-                    new Pelicula(null, "Blade Runner",            "Ciencia Ficción", 1982),
-                    new Pelicula(null, "El Club de la Lucha",     "Drama",      1999),
-                    new Pelicula(null, "Pulp Fiction",            "Crimen",     1994),
-                    new Pelicula(null, "La Lista de Schindler",   "Historia",   1993),
-                    new Pelicula(null, "Apocalypse Now",          "Bélica",     1979),
-                    new Pelicula(null, "Metrópolis",              "Ciencia Ficción", 1927),
-                    new Pelicula(null, "El Séptimo Sello",        "Drama",      1957),
-                    new Pelicula(null, "Taxi Driver",             "Thriller",   1976)
+                    new Pelicula(null, "El Padrino",              "Drama",      1972,""),
+                    new Pelicula(null, "2001: Odisea en el Espacio", "Ciencia Ficción", 1968,""),
+                    new Pelicula(null, "Blade Runner",            "Ciencia Ficción", 1982,""),
+                    new Pelicula(null, "El Club de la Lucha",     "Drama",      1999,""),
+                    new Pelicula(null, "Pulp Fiction",            "Crimen",     1994,""),
+                    new Pelicula(null, "La Lista de Schindler",   "Historia",   1993,""),
+                    new Pelicula(null, "Apocalypse Now",          "Bélica",     1979,""),
+                    new Pelicula(null, "Metrópolis",              "Ciencia Ficción", 1927,""),
+                    new Pelicula(null, "El Séptimo Sello",        "Drama",      1957,""),
+                    new Pelicula(null, "Taxi Driver",             "Thriller",   1976,"")
             ));
             System.out.println("✅ 10 películas de culto cargadas.");
         }

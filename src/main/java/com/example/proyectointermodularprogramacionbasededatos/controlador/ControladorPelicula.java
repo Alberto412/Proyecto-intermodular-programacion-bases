@@ -2,6 +2,7 @@ package com.example.proyectointermodularprogramacionbasededatos.controlador;
 
 import com.example.proyectointermodularprogramacionbasededatos.dominio.Pelicula;
 import com.example.proyectointermodularprogramacionbasededatos.servicio.PeliculaServicio;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,12 +29,12 @@ public class ControladorPelicula {
     }
 
     @PostMapping
-    public Pelicula añadirPelicula(@RequestBody Pelicula pelicula) {
+    public Pelicula añadirPelicula(@Valid @RequestBody Pelicula pelicula) {
         return peliculaServicio.añadirPelicula(pelicula);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Pelicula> actualizarPelicula(@PathVariable Long id, @RequestBody Pelicula pelicula) {
+    public ResponseEntity<Pelicula> actualizarPelicula(@Valid @PathVariable Long id, @RequestBody Pelicula pelicula) {
         return peliculaServicio.actualizarPelicula(id, pelicula)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
