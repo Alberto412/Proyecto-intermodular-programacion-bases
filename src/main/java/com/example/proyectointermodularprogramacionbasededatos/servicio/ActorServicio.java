@@ -1,8 +1,6 @@
 package com.example.proyectointermodularprogramacionbasededatos.servicio;
 
 import com.example.proyectointermodularprogramacionbasededatos.dominio.Actor;
-import com.example.proyectointermodularprogramacionbasededatos.dominio.Pelicula;
-import com.example.proyectointermodularprogramacionbasededatos.repositorio.ActoresRepositorio;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
