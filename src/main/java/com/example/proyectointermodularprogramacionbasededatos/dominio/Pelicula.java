@@ -10,6 +10,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,5 +31,24 @@ public class Pelicula {
     private int anho;
     @Transient
     String categoriaVisual;
+
+    @OneToMany(mappedBy = "pelicula")
+    private List<Actor> actores = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "pelicula_director",
+            joinColumns = @JoinColumn(name = "pelicula_id"),
+            inverseJoinColumns = @JoinColumn(name = "director_id")
+    )
+    private List<Director> directores = new ArrayList<>();
+
+    public Pelicula(Long id, String titulo, String genero, int anho, String categoriaVisual) {
+        this.id = id;
+        this.titulo = titulo;
+        this.genero = genero;
+        this.anho = anho;
+        this.categoriaVisual = categoriaVisual;
+    }
 
 }

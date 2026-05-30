@@ -22,56 +22,61 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+        if (peliculaRepositorio.count() == 0 && actoresRepositorio.count() == 0 && directorRepositorio.count() == 0) {
+            Pelicula pelicula1 = new Pelicula();
+            pelicula1.setTitulo("Pelicula 1");
+            pelicula1.setGenero("Drama");
+            pelicula1.setAnho(2001);
+            pelicula1.setCategoriaVisual("");
 
-        // ── PELÍCULAS ──────────────────────────────────────────────
-        if (peliculaRepositorio.count() == 0) {
-            peliculaRepositorio.saveAll(List.of(
-                    new Pelicula(null, "El Padrino",              "Drama",      1972,""),
-                    new Pelicula(null, "2001: Odisea en el Espacio", "Ciencia Ficción", 1968,""),
-                    new Pelicula(null, "Blade Runner",            "Ciencia Ficción", 1982,""),
-                    new Pelicula(null, "El Club de la Lucha",     "Drama",      1999,""),
-                    new Pelicula(null, "Pulp Fiction",            "Crimen",     1994,""),
-                    new Pelicula(null, "La Lista de Schindler",   "Historia",   1993,""),
-                    new Pelicula(null, "Apocalypse Now",          "Bélica",     1979,""),
-                    new Pelicula(null, "Metrópolis",              "Ciencia Ficción", 1927,""),
-                    new Pelicula(null, "El Séptimo Sello",        "Drama",      1957,""),
-                    new Pelicula(null, "Taxi Driver",             "Thriller",   1976,"")
-            ));
-            System.out.println("✅ 10 películas de culto cargadas.");
-        }
+            Pelicula pelicula2 = new Pelicula();
+            pelicula2.setTitulo("Pelicula 2");
+            pelicula2.setGenero("Accion");
+            pelicula2.setAnho(2005);
+            pelicula2.setCategoriaVisual("");
 
-        // ── ACTORES ───────────────────────────────────────────────
-        if (actoresRepositorio.count() == 0) {
-            actoresRepositorio.saveAll(List.of(
-                    new Actor(null, "Marlon Brando",    "Estadounidense"),
-                    new Actor(null, "Meryl Streep",     "Estadounidense"),
-                    new Actor(null, "Al Pacino",        "Estadounidense"),
-                    new Actor(null, "Cate Blanchett",   "Australiana"),
-                    new Actor(null, "Robert De Niro",   "Estadounidense"),
-                    new Actor(null, "Judi Dench",       "Británica"),
-                    new Actor(null, "Jack Nicholson",   "Estadounidense"),
-                    new Actor(null, "Sophia Loren",     "Italiana"),
-                    new Actor(null, "Dustin Hoffman",   "Estadounidense"),
-                    new Actor(null, "Katharine Hepburn","Estadounidense")
-            ));
-            System.out.println("✅ 10 actores legendarios cargados.");
-        }
+            peliculaRepositorio.saveAll(List.of(pelicula1, pelicula2));
 
-        // ── DIRECTORES ────────────────────────────────────────────
-        if (directorRepositorio.count() == 0) {
-            directorRepositorio.saveAll(List.of(
-                    new Director(null, "Stanley Kubrick",    77),
-                    new Director(null, "Francis Ford Coppola", 85),
-                    new Director(null, "Steven Spielberg",   77),
-                    new Director(null, "Akira Kurosawa",     88),
-                    new Director(null, "Ingmar Bergman",     89),
-                    new Director(null, "Federico Fellini",   73),
-                    new Director(null, "Alfred Hitchcock",   80),
-                    new Director(null, "Martin Scorsese",    81),
-                    new Director(null, "Billy Wilder",       95),
-                    new Director(null, "David Lynch",        78)
-            ));
-            System.out.println("✅ 10 directores premiados cargados.");
+            Director director1 = new Director();
+            director1.setNombre("Director 1");
+            director1.setEdad(50);
+
+            Director director2 = new Director();
+            director2.setNombre("Director 2");
+            director2.setEdad(45);
+
+            Director director3 = new Director();
+            director3.setNombre("Director 3");
+            director3.setEdad(40);
+
+            directorRepositorio.saveAll(List.of(director1, director2, director3));
+
+            pelicula1.setDirectores(List.of(director1));
+            pelicula2.setDirectores(List.of(director2, director3));
+            peliculaRepositorio.saveAll(List.of(pelicula1, pelicula2));
+
+            Actor actor1 = new Actor();
+            actor1.setNombre("Actor 1");
+            actor1.setNacionalidad("Nacionalidad 1");
+            actor1.setPelicula(pelicula1);
+
+            Actor actor2 = new Actor();
+            actor2.setNombre("Actor 2");
+            actor2.setNacionalidad("Nacionalidad 2");
+            actor2.setPelicula(pelicula1);
+
+            Actor actor3 = new Actor();
+            actor3.setNombre("Actor 3");
+            actor3.setNacionalidad("Nacionalidad 3");
+            actor3.setPelicula(pelicula2);
+
+            Actor actor4 = new Actor();
+            actor4.setNombre("Actor 4");
+            actor4.setNacionalidad("Nacionalidad 4");
+            actor4.setPelicula(pelicula2);
+
+            actoresRepositorio.saveAll(List.of(actor1, actor2, actor3, actor4));
+            System.out.println("✅ DataLoader CINE cargado: 2 peliculas, 4 actores, 3 directores.");
         }
     }
 }
